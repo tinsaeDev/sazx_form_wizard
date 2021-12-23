@@ -1,22 +1,29 @@
+ 
+
+ *  Create input for each standard input types
+        - text
+        - select
+        - radio
+        - file, 
+        - etc...
+* standard steps
+        - Begining ( introductio step)
+            * Messages
+        - Ending Step ( thank you message )
+            * message ( link to othe page )
+* Wizard title
+* Wizard animation
+    - Navigating btn steps
+    - Input focus,active etc
+* Theme suppurt
+    - color
+    - Shape
+        - radious
+        - font-family, weihgt, size
+        
 
 
-
-- get form data | done
-- open csv | done
-- populate column mapper from csv | done
-
-- accept formula ( display hint )
-
-- compute results
-- export result 
-
-
-# column mapping result how o be store
-# what after formula is step
-
-
-## Next
-
-- validate step 
-- responsive
-- theme swich ( dark and light )
+* feed next form
+* Conditional form step preview,
+* Conditional form question preview,
+* 
