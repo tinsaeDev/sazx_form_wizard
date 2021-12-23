@@ -1,0 +1,281 @@
+@charset "UTF-8";
+/* 
+20px — 480px: Mobile devices.
+481px — 768px: iPads, Tablets.
+769px — 1024px: Small screens, laptops.
+1025px — 1200px: Desktops, large screens.
+1201px and more — Extra large screens, TV. */
+#wizwiz {
+  width: 90vw;
+  height: 600px;
+}
+
+:root {
+  /**
+        Default Vairables
+    */
+  --sazx-wizard-height: 500px;
+  --sazx-wizard-nv-width: 30%;
+  --sazx-wizard-nv-height: 700px;
+}
+
+.sazx-wizard {
+  width: 100%;
+  height: 100%;
+}
+.sazx-wizard > .nav {
+  width: var(--sazx-wizard-nv-width);
+  height: 100%;
+}
+.sazx-wizard > .nav .list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+.sazx-wizard > .nav .list .item-wrapper .icon {
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  border-radius: 0.75rem;
+  margin-right: 0.5rem;
+  position: relative;
+}
+.sazx-wizard > .nav .list .item-wrapper .icon:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sazx-wizard > .nav .list .item-wrapper .item {
+  margin: 1rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.sazx-wizard > .nav .list .item-wrapper.passed .icon:before {
+  content: "✔";
+}
+.sazx-wizard > .nav .list .item-wrapper.current {
+  font-weight: bolder;
+}
+.sazx-wizard > .nav .list .item-wrapper.current .icon:before {
+  content: "•";
+}
+.sazx-wizard > .nav .list .item-wrapper.next .icon:before {
+  content: "";
+}
+.sazx-wizard > .content {
+  flex-grow: 1;
+}
+.sazx-wizard > .content > .steps {
+  flex-grow: 1;
+  padding: 3rem 1rem 1rem 1rem;
+  overflow: auto;
+}
+.sazx-wizard > .content > .steps > .step {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form {
+  width: 100%;
+  border: solid 1px var(--sw-color-primary);
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .input {
+  display: none;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .input:checked + .label {
+  background: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .label {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-neu-secondary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input {
+  margin-bottom: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input > .label {
+  font-size: larger;
+  margin-bottom: 3px;
+  font-weight: 400;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input > .input {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view {
+  width: 100%;
+  border: solid;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .header {
+  background: var(--sw-color-neu-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .header .button {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-neu-secondary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .header .button.active {
+  background: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab {
+  display: none;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input .button {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-primary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input .input {
+  display: none;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .url-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .url-input .input {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab.active {
+  display: flex;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > thead {
+  height: 2.5rem;
+  background-color: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > thead > tr > th {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr:nth-child(even) {
+  background-color: var(--sw-color-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr:nth-child(odd) {
+  background-color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr > td {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr > td > select {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.formula-editor .controls .operators .operator-group {
+  display: flex;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.formula-editor .controls .operators .operator-group .operator {
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--sw-color-secondary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.formula-editor .controls .operators .operator-group .operator:active {
+  background-color: var(--sw-color-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.formula-editor .editor {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: var(--sw-color-neu-primary);
+  border: solid 1px var(--sw-color-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.formula-editor .editor .operator {
+  width: min-content;
+  font-weight: bold;
+  font-size: 1.25rem;
+  background-color: transparent;
+  color: red;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.formula-editor .editor .variable {
+  padding: 0.5rem;
+  width: max-content;
+  display: inline;
+  background-color: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+  border-radius: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > thead {
+  height: 2.5rem;
+  background-color: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > thead > tr > th {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr:nth-child(even) {
+  background-color: var(--sw-color-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr:nth-child(odd) {
+  background-color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr > td {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr > td > select {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > .download {
+  width: 100%;
+  margin-top: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > .download > .button {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-primary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step.current {
+  display: flex;
+}
+.sazx-wizard > .content > .nav .button {
+  margin: 24px;
+  padding: 0.5rem 2rem;
+  border-radius: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.sazx-wizard > .content > .nav .button.hidden {
+  visibility: hidden;
+}
+
+/*# sourceMappingURL=module.css.map */

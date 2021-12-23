@@ -1,0 +1,22 @@
+
+
+
+- get form data | done
+- open csv | done
+- populate column mapper from csv | done
+
+- accept formula ( display hint )
+
+- compute results
+- export result 
+
+
+# column mapping result how o be store
+# what after formula is step
+
+
+## Next
+
+- validate step 
+- responsive
+- theme swich ( dark and light )
