@@ -4,32 +4,50 @@ const formConfig = {
     title: "Here goes the wizard title",
     steps: [
 
-                // Step 6 - Formula
+        
+        // Step 5  - Free Text         
+        {
+            label: "Define Label for this",
+            questions: [
+
 
                 {
-                    label: "Formula",
-                    questions: [
-        
-        
-                        {
-                            type: "formula",
-                            name: "formula",
-                            description: "Plase Enter the formula",
-                            input : "input1",
-                            output : "input1",
-                            variables : [
-                                {
-                                   label : "BGN",
-                                   name : "bgn"
-                                    
-                                }
-                            ]
-                        }
-                    ]
-        
-        
+                    type: "number",
+                    name: "large_claims",
+                    label: "Large claims",
+                    default : "this is default value",
+
+                },                {
+                    type: "tel",
+                    name: "large_claims",
+                    label: "Large claims",
+                    default : "this is default value",                                    
                 },
-        
+                {
+                    type: "email",
+                    name: "large_claims",
+                    label: "Large claims",
+                    default : "this is default value"                   
+                },
+                {
+                    type: "password",
+                    name: "large_claims",
+                    label: "Large claims",
+                    default : "this is default value"                   
+                },
+                {
+                    type: "number",
+                    name: "large_claims",
+                    label: "Large claims",
+                    default : "this is default value"                   
+                },
+
+
+            ]
+
+
+        },
+
 
         // Step 1 - Radio
         {
@@ -126,54 +144,6 @@ const formConfig = {
 
 
         },
-
-
-        // Step 5  - Free Text         
-        {
-            label: "Define Label for this",
-            questions: [
-
-
-                {
-                    type: "text",
-                    name: "model2",
-                    description: "Plase Enter the fields?",
-                    inputs: [
-                        {
-                            name: "large_claims",
-                            label: "Large claims",
-                            default : "this is default value"
-                        },
-
-                        {
-                            name: "annuities",
-                            label: "Annuities",
-                        },
-
-                        {
-                            name: "inflation",
-                            label: "Inflation",
-                        },
-                        {
-                            name: "ibnr",
-                            label: "IBNR",
-                        },
-                        {
-                            name: "long_tail",
-                            label: "Long tail",
-                        },
-                        {
-                            name: "ri_costs",
-                            label: "RI costs",
-                        }
-
-                    ]
-                }
-            ]
-
-
-        },
-
 
 
 

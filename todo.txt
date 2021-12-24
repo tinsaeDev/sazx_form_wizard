@@ -1,11 +1,23 @@
  
 
  *  Create input for each standard input types
-        - text
+        - text | done
+            - free | done
+            - email | done
+            - password | done
+            - textarea | done
+            - number | done
+            - url | done
+
+            # Validation
+                - number
         - select
         - radio
         - file, 
         - etc...
+        - date
+
+
 * standard steps
         - Begining ( introductio step)
             * Messages
@@ -21,9 +33,27 @@
         - radious
         - font-family, weihgt, size
         
-
+* Responsive
 
 * feed next form
 * Conditional form step preview,
 * Conditional form question preview,
 * 
+
+
+
+____________
+____________
+
+Input validation
+
+- email
+- number
+- 
+
+
+
+___________
+___________
+
+Wrap other elemets. using their id
