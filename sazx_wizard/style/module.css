@@ -80,10 +80,8 @@
 }
 .sazx-wizard .content .steps .step .form {
   width: 100%;
-  border: solid 1px var(--sw-color-primary);
-  padding: 1rem;
+  padding: 0.25rem;
   box-sizing: border-box;
-  margin-bottom: 1rem;
 }
 .sazx-wizard .content .steps .step .form .title {
   font-size: 1.25rem;
@@ -263,6 +261,9 @@
   cursor: pointer;
   background: var(--sw-color-primary);
   color: var(--sw-color-thershary);
+}
+.sazx-wizard .content .steps .step .group-form {
+  border: solid 1px var(--sw-color-primary);
 }
 .sazx-wizard .content .steps .step.current {
   display: flex;

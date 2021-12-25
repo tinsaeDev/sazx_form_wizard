@@ -122,10 +122,9 @@
 
         &  .form {
           width: 100%;
-          border: solid 1px var(--sw-color-primary);
-          padding: 1rem;
+          padding: 0.25rem;
           box-sizing: border-box;
-          margin-bottom: 1rem;
+          // margin-bottom: 1rem;
 
           &  .title {
             font-size: 1.25rem;
@@ -380,6 +379,10 @@
               }
             }
           }
+        }
+
+        & .group-form{
+          border: solid 1px var(--sw-color-primary);
         }
       }
 
