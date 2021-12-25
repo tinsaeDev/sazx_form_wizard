@@ -21,19 +21,19 @@ body {
 .sazx-wizard {
   background-color: var(--sw-color-primary);
 }
-.sazx-wizard > .nav > .list .item-wrapper {
+.sazx-wizard > .progress > .list .item-wrapper {
   color: var(--sw-color-thershary);
 }
-.sazx-wizard > .nav > .list .item-wrapper > .icon {
+.sazx-wizard > .progress > .list .item-wrapper > .icon {
   background-color: var(--sw-color-secondary);
 }
-.sazx-wizard > .nav > .list .item-wrapper > .icon:before {
+.sazx-wizard > .progress > .list .item-wrapper > .icon:before {
   color: var(--sw-color-thershary);
 }
-.sazx-wizard > .nav > .list .item-wrapper.current {
+.sazx-wizard > .progress > .list .item-wrapper.current {
   color: var(--sw-color-neu-primary);
 }
-.sazx-wizard > .nav > .list .item-wrapper.current .icon:before {
+.sazx-wizard > .progress > .list .item-wrapper.current .icon:before {
   color: var(--sw-color-neu-primary);
 }
 .sazx-wizard > .content {

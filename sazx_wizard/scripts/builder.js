@@ -48,7 +48,7 @@ let build = function (config, rootDomId) {
      */
 
     stepsDOM = rootElement.querySelector(".content .steps");
-    progressesDOM = rootElement.querySelector(".nav .list");
+    progressesDOM = rootElement.querySelector(".progress .list");
 
 
     /**

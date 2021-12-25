@@ -40,7 +40,7 @@
   width: 100%;
   height: 100%;
 
-  & > .nav {
+  &  .progress {
     width: var(--sazx-wizard-nv-width);
     height: 100%;
 
@@ -108,37 +108,37 @@
     }
   }
 
-  & > .content {
+  &  .content {
     flex-grow: 1;
-    & > .steps {
+    &  .steps {
       flex-grow: 1;
       padding: 3rem 1rem 1rem 1rem;
       overflow: auto;
 
-      & > .step {
+      &  .step {
         display: none;
         height: 100%;
         width: 100%;
 
-        & > .form {
+        &  .form {
           width: 100%;
           border: solid 1px var(--sw-color-primary);
           padding: 1rem;
           box-sizing: border-box;
           margin-bottom: 1rem;
 
-          & > .title {
+          &  .title {
             font-size: 1.25rem;
             margin-bottom: 1rem;
           }
 
-          & > .fields {
+          &  .fields {
           }
 
-          & > .fields.radio {
-            & > .radio-group {
-              & > .radio-button {
-                & > .input {
+          &  .fields.radio {
+            &  .radio-group {
+              &  .radio-button {
+                &  .input {
                   display: none;
                   &:checked + .label {
                     background: var(--sw-color-primary);
@@ -146,7 +146,7 @@
                   }
                 }
 
-                & > .label {
+                &  .label {
                   padding: 0.5rem 2rem;
                   font-weight: bold;
                   cursor: pointer;
@@ -157,25 +157,25 @@
             }
           }
 
-          & > .fields.text {
-            & > .text-inputs {
-              & > .text-input {
+          &  .fields.text {
+            &  .text-inputs {
+              &  .text-input {
                 margin-bottom: 1rem;
 
-                & > .label {
+                &  .label {
                   font-size: larger;
                   margin-bottom: 3px;
                   font-weight: 400;
                 }
 
-                & > .input {
+                &  .input {
                   height: 2rem;
                 }
               }
             }
           }
 
-          & > .fields.file-url {
+          &  .fields.file-url {
             .tab-view {
               width: 100%;
               border: solid;
@@ -233,23 +233,23 @@
             }
           }
 
-          & > .fields.column-mapper {
-            & > table {
+          &  .fields.column-mapper {
+            &  table {
               width: 100%;
-              & > thead {
+              &  thead {
                 height: 2.5rem;
                 background-color: var(--sw-color-primary);
                 color: var(--sw-color-neu-primary);
 
-                & > tr {
-                  & > th {
+                &  tr {
+                  &  th {
                     padding: 0.5rem;
                   }
                 }
               }
 
-              & > tbody {
-                & > tr {
+              &  tbody {
+                &  tr {
                   height: 2rem;
 
                   &:nth-child(even) {
@@ -259,9 +259,9 @@
                     background-color: var(--sw-color-thershary);
                   }
 
-                  & > td {
+                  &  td {
                     padding: 0.5rem;
-                    & > select {
+                    &  select {
                       width: 100%;
                     }
                   }
@@ -270,7 +270,7 @@
             }
           }
 
-          & > .fields.formula-editor {
+          &  .fields.formula-editor {
             .controls {
 
               .variables {
@@ -332,23 +332,23 @@
 
             }
           }
-          & > .fields.result-table {
-            & > table {
+          &  .fields.result-table {
+            &  table {
               width: 100%;
-              & > thead {
+              &  thead {
                 height: 2.5rem;
                 background-color: var(--sw-color-primary);
                 color: var(--sw-color-neu-primary);
 
-                & > tr {
-                  & > th {
+                &  tr {
+                  &  th {
                     padding: 0.5rem;
                   }
                 }
               }
 
-              & > tbody {
-                & > tr {
+              &  tbody {
+                &  tr {
                   height: 2rem;
 
                   &:nth-child(even) {
@@ -358,9 +358,9 @@
                     background-color: var(--sw-color-thershary);
                   }
 
-                  & > td {
+                  &  td {
                     padding: 0.5rem;
-                    & > select {
+                    &  select {
                       width: 100%;
                     }
                   }
@@ -368,10 +368,10 @@
               }
             }
 
-            & > .download {
+            &  .download {
               width: 100%;
               margin-top: 1rem;
-              & > .button {
+              &  .button {
                 padding: 0.5rem 2rem;
                 font-weight: bold;
                 cursor: pointer;
@@ -383,11 +383,11 @@
         }
       }
 
-      & > .step.current {
+      &  .step.current {
         display: flex;
       }
     }
-    & > .nav {
+    &  .nav {
       .button {
         margin: 24px;
         padding: 0.5rem 2rem;
@@ -399,6 +399,7 @@
       .button.hidden {
         visibility: hidden;
       }
+
     }
   }
 }
