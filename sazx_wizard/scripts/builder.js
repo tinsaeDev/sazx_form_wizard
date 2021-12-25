@@ -14,6 +14,7 @@ let stepTemplate;
 let radioButtomFormTemplate;
 let textInputFormTemplate;
 let textAreaInputFormTemplate;
+let groupQuestionWrapperFormTemplate;
 
 /**
  * 
@@ -39,7 +40,8 @@ let build = function (config, rootDomId) {
     radioButtomFormTemplate = document.querySelector("#sazx_wizard_template_radio_button");
 
     textInputFormTemplate = document.querySelector("#sazx_wizard_template_text");
-    textAreaInputFormTemplate = document.querySelector("#sazx_wizard_template_textarea");;
+    textAreaInputFormTemplate = document.querySelector("#sazx_wizard_template_textarea");
+    groupQuestionWrapperFormTemplate = document.querySelector("#sazx_wizard_template_group");
 
     /**
      * Save the reffernces of  all the steps parent and  progress indicators parent 
@@ -146,8 +148,8 @@ function buildQuestion(question) {
         // :End Text Based Inputs
 
         case "group": {
-            console.log("Grouping needs some code reffactor");
-
+            questionDOM = buildQuestionGroup(question);
+            break;
 
         }
 
@@ -156,6 +158,24 @@ function buildQuestion(question) {
         }
     }
     return questionDOM;
+}
+
+
+function buildQuestionGroup( questionConfig ){
+
+    let groupDOM = groupQuestionWrapperFormTemplate.content.firstElementChild.cloneNode(true);
+    
+    // set group title
+    let groupTitleDOM = groupDOM.querySelector(".title");
+        groupTitleDOM.innerText = questionConfig.label;
+
+    let groupFieldsDOM = groupDOM.querySelector(".fields");
+        // build group questions
+        questionConfig.questions.forEach( question=>{
+         groupFieldsDOM.append( buildQuestion( question  )  );
+        } );
+         
+    return groupDOM;
 }
 
 /**
@@ -173,6 +193,9 @@ function buildProgressIndicator(stepConfig, index) {
     return progressIndicator;
 
 }
+
+
+
 
 /**
  * Question Builders

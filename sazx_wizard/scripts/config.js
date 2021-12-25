@@ -12,6 +12,7 @@ const formConfig = {
 
                 {
                     type: "group",
+                    label : "Your Address",
                     questions: [
 
                         {
@@ -23,7 +24,7 @@ const formConfig = {
                         },
 
                         {
-                            type: "number",
+                            type: "url",
                             name: "gp2",
                             label: "Group Element 2",
                             default: "this is default value",
@@ -113,120 +114,12 @@ const formConfig = {
             label: "Upload CSV",
             questions: [
                 {
-                    type: "file",
-                    description: "Import CSV file?",
+                    type: "number",
+                    label: "Import CSV file?",
                     name: "csv1"
                 }
             ]
         },
-
-        // Step 3 - Column Mapping
-        {
-            label: "Map Columns",
-            questions: [
-                {
-
-                    type: "column_mapper",
-                    name: "mapper1",
-                    description: "Map the CSV file collumns",
-                    file: "csv1",
-                    columns: [
-                        "Column One",
-                        "Column Two",
-                        "Column Thre",
-                        "Column FOur",
-                    ],
-
-
-                }
-            ]
-        },
-
-        // Step 4 -Radio
-        {
-
-            label: "Choose Model",
-            questions: [
-                {
-                    type: "radio",
-                    description: "Choose Model Type",
-                    name: "model_type",
-                    options: [
-                        {
-                            label: "GLM",
-                            value: "GLM"
-                        },
-                        {
-                            label: "GBM",
-                            value: "GBM"
-                        },
-                        {
-                            label: "GAM",
-                            value: "GAM"
-                        },
-                        {
-                            label: "BYOM",
-                            value: "BYOM"
-                        }
-                    ]
-                }
-            ]
-
-
-        },
-
-
-
-        // Step 7 - Result
-
-        {
-            label: "Result",
-            questions: [
-                {
-
-                    type: "result",
-                    description: "Calculated Result",
-                    data: {
-                        head: [
-                            "column 1",
-                            "column 2",
-                            "column 3",
-                            "column 4",
-                        ],
-                        body: [
-                            [
-                                "Cell 1",
-                                "Cell 2",
-                                "Cell 3",
-                                "Cell 4",
-
-                            ],
-                            [
-                                "Cell 1",
-                                "Cell 2",
-                                "Cell 3",
-                                "Cell 4",
-
-                            ],
-                            [
-                                "Cell 1",
-                                "Cell 2",
-                                "Cell 3",
-                                "Cell 4",
-
-                            ],
-
-                        ]
-                    }
-
-
-                }
-            ]
-        },
-
-
-
-
 
     ]
 }
