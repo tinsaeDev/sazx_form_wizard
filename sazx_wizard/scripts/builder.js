@@ -14,10 +14,6 @@ let stepTemplate;
 let radioButtomFormTemplate;
 let textInputFormTemplate;
 let textAreaInputFormTemplate;
-let fileUrlFormTemplate;
-let columnMapperFormTemplate;
-let formulaEditorFormTemplate;
-let resultTableFormTemplate;
 
 /**
  * 
@@ -44,11 +40,6 @@ let build = function (config, rootDomId) {
 
     textInputFormTemplate = document.querySelector("#sazx_wizard_template_text");
     textAreaInputFormTemplate = document.querySelector("#sazx_wizard_template_textarea");;
-
-    fileUrlFormTemplate = document.querySelector("#sazx_wizard_template_file_url");
-    columnMapperFormTemplate = document.querySelector("#sazx_wizard_template_column-mapper");
-    formulaEditorFormTemplate = document.querySelector("#sazx_wizard_template_formula_editor")
-    resultTableFormTemplate = document.querySelector("#sazx_wizard_template_result_table");
 
     /**
      * Save the reffernces of  all the steps parent and  progress indicators parent 
@@ -95,73 +86,7 @@ function buildStep(stepConfig, index) {
     // Build Questions
 
     stepConfig.questions.forEach(question => {
-
-        switch (question.type) {
-            case "radio": {
-                step.append(buildRadioQuestion(question));
-                break;
-            }
-            /**
-             * Text based inputs
-             */
-            case "text": {
-                step.append(buildFreeTextQuestion(question));
-                break;
-            }
-            case "email": {
-                step.append(buildEmailQuestion(question));
-                break;
-            }
-            case "url": {
-                step.append(buildUrlQuestion(question));
-                break;
-            }
-            case "tel": {
-                step.append(buildTelephoneQuestion(question));
-                break;
-            }
-            case "number": {
-                step.append(buildNumberQuestion(question));
-                break;
-            }
-            case "password": {
-                step.append(buildPasswordQuestion(question));
-                break;
-            }
-
-            case "textarea": {
-                step.append(buildTextAreaQuestion(question));
-                break;
-            }
-
-            // :End Text Based Inputs
-
-
-            case "file": {
-                step.append(buildFileUrlQuestion(question));
-                break;
-            }
-
-            case "column_mapper": {
-                step.append(buildColumnMapperQuestion(question));
-                break;
-            }
-
-            case "formula": {
-                step.append(buildFormulaEditorQuestion(question));
-                break;
-
-            } case "result": {
-                step.append(buildResultsTableQuestion(question));
-                break;
-
-            }
-
-            default: {
-                console.error(question.type, " is not a supported question type");
-            }
-        }
-
+        step.append(buildQuestion(question));
     });
 
 
@@ -169,6 +94,68 @@ function buildStep(stepConfig, index) {
 
     return step;
 
+}
+
+/**
+ * Builds Question
+ */
+function buildQuestion(question) {
+
+    let questionDOM;
+    switch (question.type) {
+        case "radio": {
+            questionDOM = buildRadioQuestion(question);
+            break;
+        }
+        /**
+         * Text based inputs
+         */
+        case "text": {
+            questionDOM = buildFreeTextQuestion(question);
+            break;
+        }
+        case "email": {
+            questionDOM = buildEmailQuestion(question);
+            break;
+        }
+        case "url": {
+            questionDOM = buildUrlQuestion(question);
+
+            break;
+        }
+        case "tel": {
+            questionDOM = buildTelephoneQuestion(question);
+
+            break;
+        }
+        case "number": {
+            questionDOM = buildNumberQuestion(question);
+            break;
+        }
+        case "password": {
+            questionDOM = buildPasswordQuestion(question);
+
+            break;
+        }
+
+        case "textarea": {
+            questionDOM = buildTextAreaQuestion(question);
+            break;
+        }
+
+        // :End Text Based Inputs
+
+        case "group": {
+            console.log("Grouping needs some code reffactor");
+
+
+        }
+
+        default: {
+            console.error(question.type, " is not a supported question type");
+        }
+    }
+    return questionDOM;
 }
 
 /**
@@ -313,7 +300,7 @@ function buildTextInput(questionConfig) {
                 if (target.validity.patternMismatch) {
                     console.error("Input pattern mismatched");
                 }
-                
+
             }
         }
 
@@ -322,7 +309,7 @@ function buildTextInput(questionConfig) {
             let inputType = target.getAttribute("type");
 
             if (target.validity.typeMismatch) {
-                console.error("Input is not a, " , target.getAttribute("type") );
+                console.error("Input is not a, ", target.getAttribute("type"));
             }
         }
 
@@ -354,7 +341,7 @@ function buildEmailQuestion(questionConfig) {
 
     return stepQuestionDOM;
 }
-function buildUrlQuestion( questionConfig ){
+function buildUrlQuestion(questionConfig) {
 
     let stepQuestionDOM = buildTextInput(questionConfig);
     let textInput = stepQuestionDOM.querySelector(".input");
@@ -363,7 +350,7 @@ function buildUrlQuestion( questionConfig ){
 
 }
 
-function buildTelephoneQuestion( questionConfig ){
+function buildTelephoneQuestion(questionConfig) {
     let stepQuestionDOM = buildTextInput(questionConfig);
     let textInput = stepQuestionDOM.querySelector(".input");
     textInput.setAttribute("type", "tel");
@@ -484,180 +471,3 @@ function buildTextAreaQuestion(questionConfig) {
     return questionDOM;
 }
 
-
-
-
-
-// file upload/url builder
-
-function buildFileUrlQuestion(questionConfig) {
-    let questionDOM = fileUrlFormTemplate.content.firstElementChild.cloneNode(true);
-
-    let title = questionDOM.querySelector(".title");
-    title.innerText = questionConfig.description;
-
-    let fileInput = questionDOM.querySelector(".file-input .input");
-    fileInput.setAttribute("name", questionConfig.name);
-
-    /**
-     * FIle Url not implemented yet
-     */
-
-
-    return questionDOM;
-
-}
-
-
-// Column mapper builder
-
-function buildColumnMapperQuestion(questionConfig) {
-
-    let questionDOM = columnMapperFormTemplate.content.firstElementChild.cloneNode(true);
-    let title = questionDOM.querySelector(".title");
-    title.innerText = questionConfig.description;
-
-
-
-
-    // Build the table rows
-    let tableBody = questionDOM.querySelector("table tbody");
-    let bodyRowTemplate = questionDOM.querySelector("table tbody .tr-template");
-    let bodyRowFileColumnSelectTemplate = questionDOM.querySelector("table tbody .select-template");
-    let bodyRowFileColumnOptionTemplate = questionDOM.querySelector("table tbody .select-option-template");
-
-
-
-    /**
-     * Register file change event, and re render the column mapper everytime the csv file is changed
-     */
-    files.addChangeListener(questionConfig.file, event => {
-
-        // Remove all existing  rows from table body, before adding new one
-
-        debugger;
-        let allRows = tableBody.querySelectorAll("tr");
-        allRows.forEach(row => {
-            row.remove();
-        })
-
-
-        // C
-        questionConfig.columns.forEach((column, rowIndex) => {
-
-            /**
-             * Read the contens of the CSV file,
-             */
-
-            let fileReader = new FileReader();
-            fileReader.onload = function (event) {
-
-                let bodyRow = bodyRowTemplate.content.firstElementChild.cloneNode(true);
-                let fileColumn = bodyRow.querySelector(".file-column");
-                let select = bodyRowFileColumnSelectTemplate.content.firstElementChild.cloneNode(true);
-                select.setAttribute("name", rowIndex);
-
-
-                let result = event.target.result;
-
-                let getCSVCOlumns = (result) => {
-                    let lines = result.split('\n');
-                    let headerLine = lines[0];
-                    return headerLine.split(",");
-                }
-
-
-                let csvColums = getCSVCOlumns(result);
-                csvColums.forEach((column, optionIndex) => {
-
-                    let option = bodyRowFileColumnOptionTemplate.content.firstElementChild.cloneNode(true);
-                    option.setAttribute("value", optionIndex);
-                    option.innerText = column;
-
-                    select.append(option);
-
-
-                });
-
-                fileColumn.append(select);
-
-
-
-
-
-                let mapToColumn = bodyRow.querySelector(".map-to");
-                mapToColumn.querySelector(".label").innerText = column;
-
-                tableBody.append(bodyRow);
-
-
-            }
-            fileReader.onerror = function (event) {
-                console.log("Error reading", event);
-            }
-
-
-            fileReader.readAsText(files[questionConfig.file]);
-
-
-        })
-
-
-
-
-    });
-
-
-
-
-
-
-    return questionDOM;
-}
-
-
-// Result table builder
-function buildResultsTableQuestion(questionConfig) {
-    let questionDOM = resultTableFormTemplate.content.firstElementChild.cloneNode(true);
-
-    let title = questionDOM.querySelector(".title");
-    title.innerText = questionConfig.description;
-
-    let tableHeadRow = questionDOM.querySelector("table thead tr");
-    let tableHeadRowCellTemplate = tableHeadRow.querySelector(".template-head-tr-th");
-
-    // Create table header cells from data
-    questionConfig.data.head.forEach(column => {
-        let cell = tableHeadRowCellTemplate.content.firstElementChild.cloneNode(true);
-        cell.innerText = column;
-
-        tableHeadRow.append(cell);
-    });
-
-    // Create table rows from data
-    let tableBody = questionDOM.querySelector("table tbody");
-    let tableBodyRowTemplate = tableBody.querySelector(".template-body-tr");
-    questionConfig.data.body.forEach(row => {
-        let tableBodyRow = tableBodyRowTemplate.content.firstElementChild.cloneNode(true);
-        let tableBodyCellTemplate = tableBodyRow.querySelector(".template-body-tr-td");
-
-        row.forEach(column => {
-            let tableBodyCell = tableBodyCellTemplate.content.firstElementChild.cloneNode(true);
-            tableBodyCell.innerText = column;
-
-            tableBodyRow.append(tableBodyCell);
-
-        });
-
-        tableBody.append(tableBodyRow);
-    });
-
-    return questionDOM;
-}
-
-
-
-function buildFormulaEditorQuestion(questionConfig) {
-    let questionDOM = formulaEditorFormTemplate.content.firstElementChild.cloneNode(true);
-    return questionDOM;
-}

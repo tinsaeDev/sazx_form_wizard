@@ -4,42 +4,72 @@ const formConfig = {
     title: "Here goes the wizard title",
     steps: [
 
-        
+
         // Step 5  - Free Text         
         {
             label: "Define Label for this",
             questions: [
 
+                {
+                    type: "group",
+                    questions: [
+
+                        {
+                            type: "number",
+                            name: "gp1",
+                            label: "Group Element 1",
+                            default: "this is default value",
+
+                        },
+
+                        {
+                            type: "number",
+                            name: "gp2",
+                            label: "Group Element 2",
+                            default: "this is default value",
+
+                        },
+                        
+                        {
+                            type: "number",
+                            name: "gp3",
+                            label: "Group Element 3",
+                            default: "this is default value",
+
+                        },
+                        
+                    ]
+                },
 
                 {
                     type: "number",
                     name: "large_claims",
                     label: "Large claims",
-                    default : "this is default value",
+                    default: "this is default value",
 
-                },                {
+                }, {
                     type: "tel",
                     name: "large_claims",
                     label: "Large claims",
-                    default : "this is default value",                                    
+                    default: "this is default value",
                 },
                 {
                     type: "email",
                     name: "large_claims",
                     label: "Large claims",
-                    default : "this is default value"                   
+                    default: "this is default value"
                 },
                 {
                     type: "password",
                     name: "large_claims",
                     label: "Large claims",
-                    default : "this is default value"                   
+                    default: "this is default value"
                 },
                 {
                     type: "number",
                     name: "large_claims",
                     label: "Large claims",
-                    default : "this is default value"                   
+                    default: "this is default value"
                 },
 
 
