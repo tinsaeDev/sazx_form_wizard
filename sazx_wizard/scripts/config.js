@@ -10,7 +10,79 @@ const formConfig = {
             label: "Define Label for this",
             questions: [
 
+                // 
                 {
+                    type: "radio",
+                    label: "What do you want to Model?",
+                    name: "model",
+                    options: [
+                        {
+                            label: "Frequency",
+                            value: "f"
+                        },
+                        {
+                            label: "Severity",
+                            value: "s"
+                        },
+                        {
+                            label: "Demand",
+                            value: "d"
+                        }
+                    ]},
+                // 
+
+                {
+                    type: "group",
+                    label : "Your Address",
+                    questions: [
+
+                        {
+                            type: "number",
+                            name: "gp1",
+                            label: "Group Element 1",
+                            default: "this is default value",
+
+                        },
+
+                                        // 
+                {
+                    type: "radio",
+                    label: "What do you want to Model?",
+                    name: "model11",
+                    options: [
+                        {
+                            label: "Frequency",
+                            value: "f"
+                        },
+                        {
+                            label: "Severity",
+                            value: "s"
+                        },
+                        {
+                            label: "Demand",
+                            value: "d"
+                        }
+                    ]},
+                // 
+
+                        {
+                            type: "url",
+                            name: "gp2",
+                            label: "Group Element 2",
+                            default: "this is default value",
+
+                        },
+                        
+                        {
+                            type: "number",
+                            name: "gp3",
+                            label: "Group Element 3",
+                            default: "this is default value",
+
+                        },
+// 
+                        {
+                            
                     type: "group",
                     label : "Your Address",
                     questions: [
@@ -30,15 +102,11 @@ const formConfig = {
                             default: "this is default value",
 
                         },
-                        
-                        {
-                            type: "number",
-                            name: "gp3",
-                            label: "Group Element 3",
-                            default: "this is default value",
+                    ]
+                    }
 
-                        },
                         
+                        // 
                     ]
                 },
 
@@ -87,7 +155,7 @@ const formConfig = {
             questions: [
                 {
                     type: "radio",
-                    description: "What do you want to Model?",
+                    label: "What do you want to Model?",
                     name: "model",
                     options: [
                         {

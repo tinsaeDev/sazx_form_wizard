@@ -206,11 +206,6 @@ function buildRadioQuestion(questionConfig) {
 
     let questionDOM = radioButtomFormTemplate.content.firstElementChild.cloneNode(true);
 
-    /**
-     * Set the question description/title
-     */
-    let title = questionDOM.querySelector(".title");
-    title.innerText = questionConfig.description;
 
 
     let radioFields = questionDOM.querySelector(".fields");
@@ -218,13 +213,20 @@ function buildRadioQuestion(questionConfig) {
     let radioButtonTemplate = radioGroup.querySelector(".radio-button-template");
 
     /**
-     * Build the custom buttons
+     * Set the question title
+     */
+
+    let label = questionDOM.querySelector(".label");
+        label.innerText = questionConfig.label;
+
+    /**
+     * Build the radio options
      */
     questionConfig.options.forEach(option => {
 
         let sazxRadioButton = radioButtonTemplate.content.firstElementChild.cloneNode(true);
-        let label = sazxRadioButton.querySelector(".label");
-        let input = sazxRadioButton.querySelector(".input");
+        let label = sazxRadioButton.querySelector(".radio-label");
+        let input = sazxRadioButton.querySelector(".radio-input");
 
         input.setAttribute("name", questionConfig.name);
         input.setAttribute("id", `sazx-${questionConfig.name}-${option.value}`);

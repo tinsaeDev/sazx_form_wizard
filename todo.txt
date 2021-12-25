@@ -8,10 +8,13 @@
             - textarea | done
             - number | done
             - url | done
+            - group | done
 
             # Validation
                 - number
+
         - select
+        
         - radio
         - file, 
         - etc...

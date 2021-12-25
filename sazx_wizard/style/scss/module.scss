@@ -40,7 +40,7 @@
   width: 100%;
   height: 100%;
 
-  &  .progress {
+  & .progress {
     width: var(--sazx-wizard-nv-width);
     height: 100%;
 
@@ -108,289 +108,82 @@
     }
   }
 
-  &  .content {
+  & .content {
     flex-grow: 1;
-    &  .steps {
+    & .steps {
       flex-grow: 1;
       padding: 3rem 1rem 1rem 1rem;
       overflow: auto;
 
-      &  .step {
+      & .step {
         display: none;
         height: 100%;
         width: 100%;
 
-        &  .form {
+        & .form {
           width: 100%;
           padding: 0.25rem;
           box-sizing: border-box;
-          // margin-bottom: 1rem;
+          margin-bottom: 1rem;
+          display: flex;
+          flex-flow: column;
 
-          &  .title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+          & .label {
+            font-size: larger;
+            margin-bottom: 3px;
+            font-weight: 400;
           }
 
-          &  .fields {
+          & .fields {
           }
 
-          &  .fields.radio {
-            &  .radio-group {
-              &  .radio-button {
-                &  .input {
+          & .fields.radio {
+            & .radio-group {
+              & .radio-button {
+                & .radio-input {
                   display: none;
-                  &:checked + .label {
+                  &:checked + .radio-label {
                     background: var(--sw-color-primary);
                     color: var(--sw-color-neu-primary);
                   }
                 }
 
-                &  .label {
+                & .radio-label {
                   padding: 0.5rem 2rem;
                   font-weight: bold;
                   cursor: pointer;
                   background: var(--sw-color-neu-secondary);
                   color: var(--sw-color-thershary);
+                  display: block;
                 }
               }
             }
           }
 
-          &  .fields.text {
-            &  .text-inputs {
-              &  .text-input {
-                margin-bottom: 1rem;
-
-                &  .label {
-                  font-size: larger;
-                  margin-bottom: 3px;
-                  font-weight: 400;
+          & .fields.text {
+            & .text-inputs {
+              & .text-input {
+                & .label {
                 }
 
-                &  .input {
+                & .input {
                   height: 2rem;
                 }
-              }
-            }
-          }
-
-          &  .fields.file-url {
-            .tab-view {
-              width: 100%;
-              border: solid;
-              .header {
-                background: var(--sw-color-neu-secondary);
-
-                .button {
-                  padding: 0.5rem 2rem;
-                  font-weight: bold;
-                  cursor: pointer;
-
-                  background: var(--sw-color-neu-secondary);
-                  color: var(--sw-color-thershary);
-                }
-
-                .button.active {
-                  background: var(--sw-color-primary);
-                  color: var(--sw-color-neu-primary);
-                }
-              }
-
-              .body {
-                .tab {
-                  display: none;
-                  .file-input {
-                    width: 100%;
-                    padding: 0.5rem;
-
-                    .button {
-                      padding: 0.5rem 2rem;
-                      font-weight: bold;
-                      cursor: pointer;
-                      background: var(--sw-color-primary);
-                      color: var(--sw-color-thershary);
-                    }
-                    .input {
-                      display: none;
-                    }
-                  }
-
-                  .url-input {
-                    width: 100%;
-                    padding: 0.5rem;
-                    .label {
-                    }
-                    .input {
-                      height: 2rem;
-                    }
-                  }
-                }
-                .tab.active {
-                  display: flex;
-                }
-              }
-            }
-          }
-
-          &  .fields.column-mapper {
-            &  table {
-              width: 100%;
-              &  thead {
-                height: 2.5rem;
-                background-color: var(--sw-color-primary);
-                color: var(--sw-color-neu-primary);
-
-                &  tr {
-                  &  th {
-                    padding: 0.5rem;
-                  }
-                }
-              }
-
-              &  tbody {
-                &  tr {
-                  height: 2rem;
-
-                  &:nth-child(even) {
-                    background-color: var(--sw-color-secondary);
-                  }
-                  &:nth-child(odd) {
-                    background-color: var(--sw-color-thershary);
-                  }
-
-                  &  td {
-                    padding: 0.5rem;
-                    &  select {
-                      width: 100%;
-                    }
-                  }
-                }
-              }
-            }
-          }
-
-          &  .fields.formula-editor {
-            .controls {
-
-              .variables {
-              }
-              .operators {
-                .operator-group {
-                  display: flex;
-                  .operator {
-                    padding: 0;
-                    width: 2rem;
-                    height: 2rem;
-
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    font-weight: bold;
-                    font-size: 1.5rem;
-                    border-radius: 1rem;
-
-                    background-color: var(--sw-color-secondary);
-                    color: var(--sw-color-neu-primary);
-
-                    &:active{
-                    background-color: var(--sw-color-primary);
-
-                    } 
-                  }
-                }
-              }
-            }
-
-            .editor {
-              margin-top: 1rem;
-              width: 100%;
-              padding: 1rem;
-              box-sizing: border-box;
-              background-color: var(--sw-color-neu-primary);
-              border: solid 1px var(--sw-color-secondary);
-              .operator{
-                
-                width: min-content;
-                font-weight: bold;
-                font-size: 1.25rem;
-
-                background-color: transparent;
-                color: red
-              }
-
-              .variable{
-                padding: 0.5rem;
-                width: max-content;
-                display: inline;
-                background-color: var(--sw-color-primary);
-                color: var(--sw-color-neu-primary);
-                border-radius: 0.5rem;
-              }
-
-
-            }
-          }
-          &  .fields.result-table {
-            &  table {
-              width: 100%;
-              &  thead {
-                height: 2.5rem;
-                background-color: var(--sw-color-primary);
-                color: var(--sw-color-neu-primary);
-
-                &  tr {
-                  &  th {
-                    padding: 0.5rem;
-                  }
-                }
-              }
-
-              &  tbody {
-                &  tr {
-                  height: 2rem;
-
-                  &:nth-child(even) {
-                    background-color: var(--sw-color-secondary);
-                  }
-                  &:nth-child(odd) {
-                    background-color: var(--sw-color-thershary);
-                  }
-
-                  &  td {
-                    padding: 0.5rem;
-                    &  select {
-                      width: 100%;
-                    }
-                  }
-                }
-              }
-            }
-
-            &  .download {
-              width: 100%;
-              margin-top: 1rem;
-              &  .button {
-                padding: 0.5rem 2rem;
-                font-weight: bold;
-                cursor: pointer;
-                background: var(--sw-color-primary);
-                color: var(--sw-color-thershary);
               }
             }
           }
         }
 
-        & .group-form{
+        & .group-form {
           border: solid 1px var(--sw-color-primary);
         }
       }
 
-      &  .step.current {
+      & .step.current {
         display: flex;
       }
     }
-    &  .nav {
+    & .nav {
       .button {
         margin: 24px;
         padding: 0.5rem 2rem;
@@ -402,7 +195,6 @@
       .button.hidden {
         visibility: hidden;
       }
-
     }
   }
 }

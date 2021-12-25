@@ -92,18 +92,18 @@
     <!-- Templates -->
 
 
-        <!-- :Begin Grouping Template -->
-        <template id="sazx_wizard_template_group">
-            <!-- :Begin Free Text-->
-            <div class="form group-form">
-                <h1 class="title"> Group title goes here </h1>
-                <div class="fields group">
-                </div>
+    <!-- :Begin Grouping Template -->
+    <template id="sazx_wizard_template_group">
+        <!-- :Begin Free Text-->
+        <div class="form group-form">
+            <h1 class="title"> Group title goes here </h1>
+            <div class="fields group">
             </div>
-            <!-- :End Free Text -->
-    
-        </template>
-        <!-- :End Grouping Template  -->
+        </div>
+        <!-- :End Free Text -->
+
+    </template>
+    <!-- :End Grouping Template  -->
 
     <!-- :Begin step template -->
     <template id="sazx-wiz-step-wrapper-template">
@@ -128,21 +128,15 @@
 
         <!-- :Begin Radio Button Question   -->
         <div class="form">
-            <h1 class="title"> What do you want to Model? </h1>
+            <label class="label" for="bb"> QA QA QA AQ </label>
             <div class="fields radio ">
-
                 <div class="radio-group l-flex l-center-hr l-center-vr">
-
                     <template class="radio-button-template">
                         <div class="radio-button">
-                            <input class="input" name="aa" id="a1" type="radio">
-                            <label class="label" for="a1"> One </label>
+                            <input class="radio-input" name="aa" id="a1" type="radio">
+                            <label class="radio-label" for="a1"> One </label>
                         </div>
                     </template>
-
-
-
-
                 </div>
 
             </div>
@@ -185,15 +179,12 @@
                 <div class="text-inputs">
                     <template class="text-input-template">
                         <div class="text-input l-flex l-flex-column">
-                            <label class="label" for="bb">  </label>
+                            <label class="label" for="bb"> </label>
                             <textarea class="input" id="bb" name="bb" type="text"> </textarea>
                         </div>
                     </template>
 
                 </div>
-
-
-
             </div>
         </div>
         <!-- :End Free Text -->
